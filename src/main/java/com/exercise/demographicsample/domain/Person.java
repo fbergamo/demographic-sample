@@ -1,11 +1,19 @@
 package com.exercise.demographicsample.domain;
 
+import javax.persistence.*;
 import java.util.Date;
 
+
 public class Person {
+
     private String name;
+
     private Long PPS;
-    private Date birthDate;
+
+
+    private String birthDate;
+
+
     private Integer phoneNumber;
 
     public String getName() {
@@ -24,11 +32,11 @@ public class Person {
         this.PPS = PPS;
     }
 
-    public Date getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(Date birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 
