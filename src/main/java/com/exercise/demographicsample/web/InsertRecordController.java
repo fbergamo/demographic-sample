@@ -5,6 +5,7 @@ import com.exercise.demographicsample.services.IPersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,8 +28,14 @@ public class InsertRecordController {
     }
 
     @RequestMapping(value="/insert", method= RequestMethod.POST)
-    public void savePerson(@ModelAttribute Person person){
+    public String savePerson(@Valid Person person,BindingResult bindingResult){
+        if (bindingResult.hasErrors()) {
+            return "insert";
+        }
+
         personService.addPerson(person);
+
+        return "redirect:/show";
     }
 
 }

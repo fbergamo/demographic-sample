@@ -7,10 +7,18 @@
 </head>
 <body>
     <form action="#" th:action="@{/insert}" th:object="${person}" method="post">
-        Name:<input type="text" th:field="*{name}"></input>
-        PPS:<input type="number" th:field="*{PPS}"></input>
-        Date of Birth:<input type="date" th:field="*{birthDate}"></input>
-        Phone Number (optional): <input type="text" th:field="*{phoneNumber}"></input>
+        <p>Name:<input type="text" th:field="*{name}"></input></p>
+        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
+
+        <p>PPS:<input type="number" th:field="*{PPS}"></input></p>
+        <p th:if="${#fields.hasErrors('PPS')}" th:errors="*{PPS}">Name Error</p>
+
+        <p>Date of Birth:<input type="date" th:type="date" th:field="*{birthDate}"></input></p>
+        <p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Name Error</p>
+
+        <p>Phone Number (optional): <input type="text" th:field="*{phoneNumber}"></input></p>
+        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Name Error</p>
+
         <input type="submit"></input>
     </form>
 </body>
