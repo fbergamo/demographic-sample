@@ -23,6 +23,7 @@ public class Person {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthDate;
 
+    @Size(max=12)
     private String phoneNumber;
 
     public String getName() {

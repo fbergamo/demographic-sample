@@ -8,6 +8,8 @@ public interface IPersonService {
 
     public List<Person> findAll();
 
+    public List<Person> findByPPS(Long PPS);
+
     public void addPerson(Person person);
 
 }
