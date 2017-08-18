@@ -3,10 +3,21 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link href="style.css"  rel="stylesheet" type="text/css"  />
 </head>
 <body>
-    <p>ADD PERSON <a href="/insert">here</a></p>
-    <p>PERSON LIST <a href="/show">here</a></p>
+    <div class="container">
+        <h1 class="text-center">Demographic Application</h1>
+        <div class="row ">
+            <div class="col-md-3 col-md-offset-3">
+                <a class="btn btn-success btn-block" href="/insert" role="button"><i class="glyphicon glyphicon-user"></i>&nbsp;Insert Person</a>
+            </div>
+            <div class="col-md-3">
+                <a class="btn btn-info btn-block" href="/show" role="button"><i class="glyphicon glyphicon-list"></i>&nbsp;Show People</a>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>

@@ -33,6 +33,11 @@ public class InsertRecordController {
             return "insert";
         }
 
+        // Add 08 to the phone number
+        if(person.getPhoneNumber()!=null && person.getPhoneNumber()!=""){
+            person.setPhoneNumber("08" + person.getPhoneNumber());
+        }
+
         personService.addPerson(person);
 
         return "redirect:/show";

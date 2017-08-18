@@ -3,23 +3,45 @@
 <head>
     <title>Getting Started: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"/>
+    <link th:href="@{/../style.css}" href="/../MyCSS.css"  rel="stylesheet" type="text/css"  />
 </head>
 <body>
-    <form action="#" th:action="@{/insert}" th:object="${person}" method="post">
-        <p>Name:<input type="text" th:field="*{name}"></input></p>
-        <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</p>
-
-        <p>PPS:<input type="number" th:field="*{PPS}"></input></p>
-        <p th:if="${#fields.hasErrors('PPS')}" th:errors="*{PPS}">Name Error</p>
-
-        <p>Date of Birth:<input type="date" th:type="date" th:field="*{birthDate}"></input></p>
-        <p th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">Name Error</p>
-
-        <p>Phone Number (optional): <input type="text" th:field="*{phoneNumber}"></input></p>
-        <p th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">Name Error</p>
-
-        <input type="submit"></input>
-    </form>
+<h1 class="text-center"><i class="glyphicon glyphicon-user"></i>&nbsp;Insert Person</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md-6 col-md-offset-3">
+                <div class="text-right">
+                    <a href="/" >Back </a>
+                </div>
+                <form action="#" th:action="@{/insert}" th:object="${person}" method="post">
+                    <div class="form-group">
+                        <label for="nameInput">Name</label>
+                        <input type="text" th:field="*{name}" class="form-control" id="nameInput" placeholder="Name"/>
+                        <div class="alert alert-danger error-message" role="alert" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="PPSInput">PPS</label>
+                        <input type="number" th:field="*{PPS}" class="form-control" id="PPSInput" placeholder="PPS"/>
+                        <div class="alert alert-danger error-message" role="alert" th:if="${#fields.hasErrors('PPS')}" th:errors="*{PPS}">PPS Error</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="birthDateInput">Birth Date</label>
+                        <input type="date" th:field="*{birthDate}" class="form-control" id="birthDateInput" placeholder="Birth Date"/>
+                        <div class="alert alert-danger error-message" role="alert" th:if="${#fields.hasErrors('birthDate')}" th:errors="*{birthDate}">birthDate Error</div>
+                    </div>
+                    <div class="form-group">
+                        <label for="phoneNumberInput">Phone Number</label>
+                        <div class="input-group">
+                            <div class="input-group-addon">08</div>
+                            <input type="number" th:field="*{phoneNumber}" class="form-control" id="phoneNumberInput" placeholder="Phone Number"/>
+                        </div>
+                        <div class="alert alert-danger error-message" role="alert" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phoneNumber Error</div>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block"><i class="glyphicon glyphicon-upload"></i>&nbsp;Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
